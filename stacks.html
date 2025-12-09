@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stacks & Expression Conversion</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+    <h1>Stacks & Expression Conversion</h1>
+    <p>Module 1 – Data Structures and Algorithms (BRI304)</p>
+</header>
+
+<nav class="top-nav">
+    <a href="index.html">Home</a>
+    <a href="intro.html">Introduction & Classification</a>
+    <a href="stacks.html" class="active">Stacks & Expressions</a>
+</nav>
+
+<main class="container">
+
+    <section class="card">
+        <h2>Stack – Definition</h2>
+        <p>
+            A <strong>stack</strong> is a linear data structure that follows 
+            <strong>LIFO (Last In First Out)</strong> or 
+            <strong>FILO (First In Last Out)</strong> order. 
+            Insertion and deletion are allowed only at one end, called the <em>top</em> of the stack. :contentReference[oaicite:2]{index=2}
+        </p>
+    </section>
+
+    <section class="card">
+        <h2>Basic Stack Operations</h2>
+        <ul class="simple-list">
+            <li><strong>push(x):</strong> Insert element <code>x</code> at the top of the stack.</li>
+            <li><strong>pop():</strong> Remove and return the top element.</li>
+            <li><strong>peek() / top():</strong> Return the top element without removing it.</li>
+            <li><strong>isEmpty():</strong> Check whether the stack has no elements.</li>
+            <li><strong>isFull():</strong> Check whether the stack is full (for array implementation).</li>
+        </ul>
+    </section>
+
+    <section class="card">
+        <h2>C Implementation – Stack Using Array</h2>
+        <pre class="code-block"><code>#define MAX 5
+int stack[MAX];
+int top = -1;
+
+void push(int data) {
+    if (top == MAX - 1) {
+        printf("Stack Overflow\n");
+    } else {
+        top++;
+        stack[top] = data;
+    }
+}
+
+int pop() {
+    if (top == -1) {
+        printf("Stack Underflow\n");
+        return -1;
+    } else {
+        return stack[top--];
+    }
+}</code></pre>
+        <p class="note">
+            In the full program, you can also add <code>peek()</code>, <code>display()</code>, and a menu-driven
+            <code>main()</code> as shown in your PDF notes.
+        </p>
+    </section>
+
+    <section class="card">
+        <h2>Applications of Stack</h2>
+        <ul class="simple-list">
+            <li>Expression evaluation and conversion (infix, postfix, prefix)</li>
+            <li>Function call management (call stack)</li>
+            <li>Backtracking problems (e.g., maze, DFS)</li>
+            <li>Undo / Redo operations in editors</li>
+            <li>Parenthesis checking in expressions</li>
+            <li>String reversal</li>
+        </ul>
+    </section>
+
+    <section class="card">
+        <h2>Expression Forms</h2>
+        <ul class="simple-list">
+            <li><strong>Infix:</strong> Operator between operands – <code>(A + B) * C</code></li>
+            <li><strong>Prefix:</strong> Operator before operands – <code>* + A B C</code></li>
+            <li><strong>Postfix:</strong> Operator after operands – <code>A B + C *</code></li>
+        </ul>
+    </section>
+
+    <section class="card">
+        <h2>Algorithm – Infix to Postfix (Using Stack)</h2>
+        <ol class="simple-list">
+            <li>Scan the infix expression from left to right.</li>
+            <li>If the symbol is an operand, add it to the postfix string.</li>
+            <li>
+                If the symbol is <code>(</code>, push it onto the stack.
+            </li>
+            <li>
+                If the symbol is <code>)</code>, pop from the stack and append to postfix 
+                until <code>(</code> is found. Discard both parentheses.
+            </li>
+            <li>
+                If the symbol is an operator:
+                <ul>
+                    <li>While the top of stack has higher or equal precedence, pop and add to postfix.</li>
+                    <li>Push the incoming operator onto the stack.</li>
+                </ul>
+            </li>
+            <li>After the full scan, pop all remaining operators from the stack to the postfix string.</li>
+        </ol>
+    </section>
+
+    <section class="card">
+        <h2>Example – Infix: <code>(A + B) * C</code></h2>
+        <div class="responsive-table">
+            <table>
+                <thead>
+                <tr>
+                    <th>Step</th>
+                    <th>Token</th>
+                    <th>Stack</th>
+                    <th>Postfix</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr><td>1</td><td>(</td><td>(</td><td>–</td></tr>
+                <tr><td>2</td><td>A</td><td>(</td><td>A</td></tr>
+                <tr><td>3</td><td>+</td><td>( +</td><td>A</td></tr>
+                <tr><td>4</td><td>B</td><td>( +</td><td>AB</td></tr>
+                <tr><td>5</td><td>)</td><td>–</td><td>AB+</td></tr>
+                <tr><td>6</td><td>*</td><td>*</td><td>AB+</td></tr>
+                <tr><td>7</td><td>C</td><td>*</td><td>AB+C</td></tr>
+                <tr><td>8</td><td>end</td><td>–</td><td>AB+C*</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="note">Final postfix expression: <strong>AB+C*</strong></p>
+    </section>
+
+    <section class="card">
+        <h2>Postfix Evaluation – Idea</h2>
+        <ol class="simple-list">
+            <li>Scan the postfix expression from left to right.</li>
+            <li>If the symbol is an operand, push it onto the stack.</li>
+            <li>
+                If the symbol is an operator:
+                <ul>
+                    <li>Pop the top two operands from the stack.</li>
+                    <li>Apply the operator: <code>result = op2 operator op1</code>.</li>
+                    <li>Push the result back onto the stack.</li>
+                </ul>
+            </li>
+            <li>At the end, the stack contains the final result.</li>
+        </ol>
+        <p class="note">
+            Example: Postfix <code>4 5 6 * +</code> evaluates to <code>34</code>.
+        </p>
+    </section>
+
+    <section class="card">
+        <h2>Feedback for This Page</h2>
+        <form id="feedbackForm" class="feedback-form">
+            <div class="form-row">
+                <label for="fbName">Name</label>
+                <input type="text" id="fbName" name="name" placeholder="Your name">
+            </div>
+            <div class="form-row">
+                <label for="fbEmail">Email</label>
+                <input type="email" id="fbEmail" name="email" placeholder="you@example.com">
+            </div>
+            <div class="form-row">
+                <label for="fbPage">Page</label>
+                <input type="text" id="fbPage" name="page" value="Stacks & Expressions" readonly>
+            </div>
+            <div class="form-row">
+                <label for="fbRating">Rating</label>
+                <select id="fbRating" name="rating" required>
+                    <option value="">Select rating</option>
+                    <option value="5">5 – Excellent</option>
+                    <option value="4">4 – Good</option>
+                    <option value="3">3 – Average</option>
+                    <option value="2">2 – Below Average</option>
+                    <option value="1">1 – Poor</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label for="fbMessage">Feedback</label>
+                <textarea id="fbMessage" name="message" rows="4" placeholder="Write your feedback..."></textarea>
+            </div>
+            <button type="submit" class="btn primary">Submit Feedback</button>
+            <p id="feedbackStatus" class="status-message"></p>
+        </form>
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <p>© 2025 Data Structures and Algorithms – Module 1 | Prepared by D. Thamaraiselvi</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
