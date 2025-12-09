@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Structures Notes - Module 1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+    <h1>Data Structures and Algorithms (BRI304)</h1>
+    <p>Module 1 – Notes by D. Thamaraiselvi</p>
+</header>
+
+<nav class="top-nav">
+    <a href="index.html" class="active">Home</a>
+    <a href="intro.html">Introduction & Classification</a>
+    <a href="stacks.html">Stacks & Expressions</a>
+</nav>
+
+<main class="container">
+    <section class="card">
+        <h2>Module 1 – Overview</h2>
+        <p>
+            This site contains notes for Module 1 of <strong>Data Structures and Algorithms (BRI304)</strong>. 
+            Topics include basic terminology, classification of data structures, linear and non-linear 
+            structures, stacks, and expression conversion (infix, postfix, prefix).
+        </p>
+        <ul class="simple-list">
+            <li>Definition and need of data structures</li>
+            <li>Primitive vs Non-primitive data structures</li>
+            <li>Linear structures: arrays, linked lists, stacks, queues</li>
+            <li>Non-linear structures: trees and graphs</li>
+            <li>Stack operations and applications</li>
+            <li>Infix → Postfix / Prefix conversion and postfix evaluation</li>
+        </ul>
+    </section>
+
+    <section class="grid-2">
+        <article class="card">
+            <h3>Introduction & Classification</h3>
+            <p>
+                What is a data structure? Why do we need it? Learn the basic terminology 
+                and the difference between primitive, linear, and non-linear data structures.
+            </p>
+            <a href="intro.html" class="btn">Go to Page</a>
+        </article>
+
+        <article class="card">
+            <h3>Stacks & Expression Conversion</h3>
+            <p>
+                Understand stack implementation, its operations, and how stacks are used for 
+                expression conversion and evaluation.
+            </p>
+            <a href="stacks.html" class="btn">Go to Page</a>
+        </article>
+    </section>
+
+    <section class="card">
+        <h2>Give Feedback on These Notes</h2>
+        <p>
+            Please share your opinion about clarity, correctness, and usefulness of the notes.
+        </p>
+        <form id="feedbackForm" class="feedback-form">
+            <div class="form-row">
+                <label for="fbName">Name</label>
+                <input type="text" id="fbName" name="name" placeholder="Your name">
+            </div>
+            <div class="form-row">
+                <label for="fbEmail">Email</label>
+                <input type="email" id="fbEmail" name="email" placeholder="you@example.com">
+            </div>
+            <div class="form-row">
+                <label for="fbPage">Page</label>
+                <select id="fbPage" name="page">
+                    <option value="Home">Home (Index)</option>
+                    <option value="Introduction & Classification">Introduction & Classification</option>
+                    <option value="Stacks & Expressions">Stacks & Expressions</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label for="fbRating">Rating</label>
+                <select id="fbRating" name="rating" required>
+                    <option value="">Select rating</option>
+                    <option value="5">5 – Excellent</option>
+                    <option value="4">4 – Good</option>
+                    <option value="3">3 – Average</option>
+                    <option value="2">2 – Below Average</option>
+                    <option value="1">1 – Poor</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label for="fbMessage">Feedback</label>
+                <textarea id="fbMessage" name="message" rows="4" placeholder="Write your feedback..."></textarea>
+            </div>
+            <button type="submit" class="btn primary">Submit Feedback</button>
+            <p id="feedbackStatus" class="status-message"></p>
+        </form>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <p>© 2025 Data Structures and Algorithms – Module 1 | Prepared by D. Thamaraiselvi</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
