@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction & Classification of Data Structures</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+    <h1>Introduction & Classification of Data Structures</h1>
+    <p>Module 1 – Data Structures and Algorithms (BRI304)</p>
+</header>
+
+<nav class="top-nav">
+    <a href="index.html">Home</a>
+    <a href="intro.html" class="active">Introduction & Classification</a>
+    <a href="stacks.html">Stacks & Expressions</a>
+</nav>
+
+<main class="container">
+
+    <section class="card">
+        <h2>What is a Data Structure?</h2>
+        <p>
+            A <strong>data structure</strong> is a method of organizing and storing data in a computer 
+            so that it can be used efficiently. The choice of data structure affects both 
+            <em>time complexity</em> and <em>space complexity</em> of operations such as searching, 
+            insertion, deletion, and retrieval. :contentReference[oaicite:1]{index=1}
+        </p>
+        <ul class="simple-list">
+            <li>Helps to store large data in a structured way</li>
+            <li>Improves performance of algorithms</li>
+            <li>Supports operations like processing, retrieving, and updating data</li>
+        </ul>
+    </section>
+
+    <section class="card">
+        <h2>Need for Data Structures</h2>
+        <p>We use data structures because:</p>
+        <ul class="simple-list">
+            <li>They make data representation clear and easy to understand.</li>
+            <li>They allow fast access and modification of data.</li>
+            <li>They help reduce memory usage and execution time.</li>
+            <li>They provide systematic ways to organize, manage, and store data.</li>
+        </ul>
+    </section>
+
+    <section class="card">
+        <h2>Basic Terminology</h2>
+        <ul class="simple-list">
+            <li><strong>Data:</strong> Raw values or facts.</li>
+            <li><strong>Information:</strong> Organized data that has meaning and can be used for decisions.</li>
+            <li><strong>Entity:</strong> A real-world object (e.g., student) with attributes like name, age, etc.</li>
+            <li><strong>Field:</strong> Single attribute of an entity (e.g., roll number).</li>
+            <li><strong>Record:</strong> Collection of fields describing one entity.</li>
+            <li><strong>File:</strong> Collection of records of the same type.</li>
+            <li><strong>Key / Primary Key:</strong> Field whose value uniquely identifies a record.</li>
+        </ul>
+    </section>
+
+    <section class="card">
+        <h2>Classification of Data Structures</h2>
+        <p>Data structures are broadly classified into two categories:</p>
+        <div class="grid-2">
+            <div>
+                <h3>Primitive Data Structures</h3>
+                <p>Basic data types supported directly by the hardware or programming language.</p>
+                <ul class="simple-list">
+                    <li>Integer</li>
+                    <li>Float / Double</li>
+                    <li>Character</li>
+                    <li>Boolean</li>
+                    <li>String</li>
+                    <li>Pointers</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Non-Primitive Data Structures</h3>
+                <p>Derived from primitive types and used to represent complex data.</p>
+                <ul class="simple-list">
+                    <li><strong>Linear:</strong> Array, Linked List, Stack, Queue</li>
+                    <li><strong>Non-Linear:</strong> Trees, Graphs</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="card">
+        <h2>Linear vs Non-Linear Data Structures</h2>
+        <div class="responsive-table">
+            <table>
+                <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Linear</th>
+                    <th>Non-Linear</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Arrangement of Data</td>
+                    <td>Elements are stored sequentially, one after another.</td>
+                    <td>Elements are stored in hierarchical or network form.</td>
+                </tr>
+                <tr>
+                    <td>Traversal</td>
+                    <td>Can often be traversed in a single pass.</td>
+                    <td>May require multiple passes and different traversal strategies.</td>
+                </tr>
+                <tr>
+                    <td>Examples</td>
+                    <td>Array, Linked List, Stack, Queue</td>
+                    <td>Tree, Graph</td>
+                </tr>
+                <tr>
+                    <td>Typical Use</td>
+                    <td>General programming, simple storage and processing.</td>
+                    <td>AI, routing, image processing, hierarchical data.</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="card">
+        <h2>Quick Summary</h2>
+        <p>
+            Primitive data types are building blocks. Non-primitive data structures combine these 
+            primitives to handle larger and more complex datasets efficiently. Choosing the right 
+            structure for the right problem is a key part of algorithm design.
+        </p>
+    </section>
+
+    <section class="card">
+        <h2>Feedback for This Page</h2>
+        <form id="feedbackForm" class="feedback-form">
+            <div class="form-row">
+                <label for="fbName">Name</label>
+                <input type="text" id="fbName" name="name" placeholder="Your name">
+            </div>
+            <div class="form-row">
+                <label for="fbEmail">Email</label>
+                <input type="email" id="fbEmail" name="email" placeholder="you@example.com">
+            </div>
+            <div class="form-row">
+                <label for="fbPage">Page</label>
+                <input type="text" id="fbPage" name="page" value="Introduction & Classification" readonly>
+            </div>
+            <div class="form-row">
+                <label for="fbRating">Rating</label>
+                <select id="fbRating" name="rating" required>
+                    <option value="">Select rating</option>
+                    <option value="5">5 – Excellent</option>
+                    <option value="4">4 – Good</option>
+                    <option value="3">3 – Average</option>
+                    <option value="2">2 – Below Average</option>
+                    <option value="1">1 – Poor</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label for="fbMessage">Feedback</label>
+                <textarea id="fbMessage" name="message" rows="4" placeholder="Write your feedback..."></textarea>
+            </div>
+            <button type="submit" class="btn primary">Submit Feedback</button>
+            <p id="feedbackStatus" class="status-message"></p>
+        </form>
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <p>© 2025 Data Structures and Algorithms – Module 1 | Prepared by D. Thamaraiselvi</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
